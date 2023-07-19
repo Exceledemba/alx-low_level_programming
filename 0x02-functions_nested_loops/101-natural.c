@@ -4,7 +4,7 @@
  *
  * Return: 0 Always
  */
-int main(0)
+int main(void)
 {
 	int i, z = 0;
 
