@@ -2,7 +2,7 @@
 /**
  * main - Entry point
  * Description: 'prints _putchar to stdout'
- * return: always 0 (Success)
+ * Return: always 0 (Success)
  */
 
 int main(void)
