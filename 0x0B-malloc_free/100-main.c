@@ -1,22 +1,20 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-char *argstostr(int, char **);
-
 /**
- * main - check the code
+ * main - check the code for ALX School students.
  *
  * Return: Always 0.
  */
-int main(void)
+int main(int ac, char *av[])
 {
 	char *s;
 
-	s = argstostr(0, NULL);
+	s = argstostr(ac, av);
 	if (s == NULL)
 	{
-		printf("Failed\n");
-		return (1);
+	return (1);
 	}
 	printf("%s", s);
 	free(s);
