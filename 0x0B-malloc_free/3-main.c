@@ -1,29 +1,36 @@
 #include "main.h"
-#include <stdlib.h>
 #include <stdio.h>
-
-/* todo: fix pointer being freed was not allocated */
-
-int **alloc_grid(int width, int height);
-void print_grid(int **grid, int width, int height);
+#include <stdlib.h>
 
 /**
- * free_grid - frees a 2 dimensional grid previously created by
- * your alloc_grid function
- * @grid: grid to free
- * @height: height of grid
+ * print_grid - prints a grid of integers
+ * @grid: the address of the two dimensional grid
+ * @width: width of the grid
+ * @height: height of the grid
+ *
+ * Return: Nothing.
  */
-void free_grid(int **grid, int height)
+void print_grid(int **grid, int width, int height)
 {
-	int i;
+	int w;
+	int h;
 
-	for (i = 0; i < height; i++)
-		free(grid[i]);
-	free(grid);
+	h = 0;
+	while (h < height)
+	{
+	w = 0;
+	while (w < width)
+	{
+	printf("%d ", grid[h][w]);
+	w++;
+	}
+	printf("\n");
+	h++;
+	}
 }
 
 /**
- * main - test alloc_grid
+ * main - check the code for ALX School students.
  *
  * Return: Always 0.
  */
@@ -34,47 +41,12 @@ int main(void)
 	grid = alloc_grid(6, 4);
 	if (grid == NULL)
 	{
-		printf("failed to allocate memory\n");
-		return (1);
+	return (1);
 	}
 	print_grid(grid, 6, 4);
-	free_grid(grid, 6);
-
-	grid = alloc_grid(0, 0);
-	if (grid == NULL)
-	{
-		printf("failed to allocate memory\n");
-		return (1);
-	}
-	print_grid(grid, 0, 0);
-	free_grid(grid, 0);
-
-	grid = alloc_grid(128, 128);
-	if (grid == NULL)
-	{
-		printf("failed to allocate memory\n");
-		return (1);
-	}
-	print_grid(grid, 128, 128);
-	free_grid(grid, 128);
-
-	grid = alloc_grid(48, 48);
-	if (grid == NULL)
-	{
-		printf("failed to allocate memory\n");
-		return (1);
-	}
-	print_grid(grid, 48, 48);
-	free_grid(grid, 48);
-
-	grid = alloc_grid(-1, -1);
-	if (grid == NULL)
-	{
-		printf("failed to allocate memory\n");
-		return (1);
-	}
-	print_grid(grid, -1, -1);
-	free_grid(grid, -1);
-
+	printf("\n");
+	grid[0][3] = 98;
+	grid[3][4] = 402;
+	print_grid(grid, 6, 4);
 	return (0);
 }
